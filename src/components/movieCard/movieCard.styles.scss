@@ -1,0 +1,18 @@
+.movie-card {
+  color: white;
+  padding: 3px;
+  margin-right: 5px;
+  object-fit: contain;
+  .movie-card_img {
+    max-height: 100px;
+    transition: transform 450ms;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.08);
+      opacity: 1;
+    }
+  }
+  .poster_img {
+    max-height: 250px;
+  }
+}

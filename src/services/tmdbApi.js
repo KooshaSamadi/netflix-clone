@@ -50,30 +50,7 @@ const fetchDocumentaries = () => {
   };
 };
 //https://api.themoviedb.org/3/trending/all/week?api_key=6eeb142d17f53c2f251f29dd77b6a4e2&language=en-US
-// export const youtubeApi = createApi({
-//   reducerPath: "youtubeApi",
-//   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
-//   endpoints: (builder) => ({
-//     getSuggestedVideos: builder.query({
-//       query: (btnSelected) => {
-//         return searchOption(btnSelected);
-//       },
-//     }),
-//     getChannelDetails: builder.query({
-//       query: (Id) => {
-//         return Channeloptions(Id);
-//       },
-//     }),
-//   }),
-// });
-// export const {
-//   useGetSuggestedVideosQuery,
-//   useGetChannelDetailsQuery,
-//   useGetchannelVideosQuery,
-//   useGetSearchResultsQuery,
-//   useGetVideoDetailQuery,
-//   useGetSuggestedVideosOptionsQuery,
-// } = youtubeApi;
+
 export const tmdbApi = createApi({
   reducerPath: "tmdbApi",
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
@@ -83,7 +60,51 @@ export const tmdbApi = createApi({
         return fetchTrending();
       },
     }),
+    getfetchNetlfixOriginals: builder.query({
+      query: () => {
+        return fetchNetlfixOriginals();
+      },
+    }),
+    getFetchTopRated: builder.query({
+      query: () => {
+        return fetchTopRated();
+      },
+    }),
+    getFetchActionMovies: builder.query({
+      query: () => {
+        return fetchActionMovies();
+      },
+    }),
+    getFetchComedyMovies: builder.query({
+      query: () => {
+        return fetchComedyMovies();
+      },
+    }),
+    getFetchHorrorMovies: builder.query({
+      query: () => {
+        return fetchHorrorMovies();
+      },
+    }),
+    getFetchRomanceMovies: builder.query({
+      query: () => {
+        return fetchRomanceMovies();
+      },
+    }),
+    getFetchDocumentaries: builder.query({
+      query: () => {
+        return fetchDocumentaries();
+      },
+    }),
   }),
 });
 
-export const { useGetFetchTrendingQuery } = tmdbApi;
+export const {
+  useGetFetchTrendingQuery,
+  useGetfetchNetlfixOriginalsQuery,
+  useGetFetchTopRatedQuery,
+  useGetFetchActionMoviesQuery,
+  useGetFetchComedyMoviesQuery,
+  useGetFetchHorrorMoviesQuery,
+  useGetFetchRomanceMoviesQuery,
+  useGetFetchDocumentariesQuery,
+} = tmdbApi;

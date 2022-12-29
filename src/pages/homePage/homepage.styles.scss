@@ -1,0 +1,25 @@
+.homepage {
+  padding: 0px;
+  overflow: hidden;
+  .homepage_row {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    &::-moz-scrollbar {
+      display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ff0000;
+    }
+    &::-webkit-scrollbar {
+      height: 3px;
+      display: none;
+    }
+  }
+
+  .homepage_row_title {
+    color: white;
+    font-size: 24px;
+    padding-top: 1rem;
+  }
+}

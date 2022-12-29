@@ -18,7 +18,6 @@ const Banner = () => {
       ]
     );
   }, [dataTrending]);
-  console.log(trendingMovie);
 
   if (isLoadingTrending) return <div>Loading...</div>;
   return (
