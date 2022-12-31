@@ -57,13 +57,13 @@ const Homepage = () => {
   } = useGetFetchDocumentariesQuery();
   const allMovies = [
     ["TRENDING", dataTrending?.results],
-    ["NETFLIX ORIGINALS", dataNetflixOriginals?.results],
-    ["TOP RATED", dataTopRated?.results],
-    ["ACTION MOVIES", dataActionMovies?.results],
-    ["COMEDY MOVIES", dataComedyMovies?.results],
-    ["HORROR MOVIES", dataHorrorMovies?.results],
-    ["ROMANCE MOVIES", dataRomanceMovies?.results],
-    ["DOCUMENTARIES", dataDocumentaries?.results],
+    // ["NETFLIX ORIGINALS", dataNetflixOriginals?.results],
+    // ["TOP RATED", dataTopRated?.results],
+    // ["ACTION MOVIES", dataActionMovies?.results],
+    // ["COMEDY MOVIES", dataComedyMovies?.results],
+    // ["HORROR MOVIES", dataHorrorMovies?.results],
+    // ["ROMANCE MOVIES", dataRomanceMovies?.results],
+    // ["DOCUMENTARIES", dataDocumentaries?.results],
   ];
   if (
     isLoadingTrending ||
@@ -80,17 +80,19 @@ const Homepage = () => {
     <Container fluid="xxl" className="homepage">
       <Navbar />
       <Banner />
-
+      
       {allMovies.map((movie, idx) => (
         <section key={idx}>
           <h1 className="homepage_row_title">{movie[0]}</h1>
           <div className="homepage_row">
-            {movie[1].map(
-              (card, idx) =>
-                (card?.poster_path || card?.backdrop_path) && (
-                  <MovieCard movie={card} key={idx} category={movie[0]} />
-                )
-            )}
+            {movie[1]
+              .slice(0, 10)
+              .map(
+                (card, idx) =>
+                  (card?.poster_path || card?.backdrop_path) && (
+                    <MovieCard movie={card} key={idx} category={movie[0]} />
+                  )
+              )}
           </div>
         </section>
       ))}
