@@ -3,6 +3,7 @@ import "./loginPage.styles.scss";
 import React, { useState } from "react";
 
 function LoginPage() {
+  // useState is used to toggle between sign in and sign up
   const [signIn, setSignIn] = useState(true);
 
   return (
