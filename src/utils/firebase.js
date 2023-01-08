@@ -42,5 +42,8 @@ const login = (email, password, setResponse) => {
       setResponse(errorMessage);
     });
 };
+const logout = () => {
+  auth.signOut();
+};
 
-export { register, login, auth };
+export { register, login, auth, logout };

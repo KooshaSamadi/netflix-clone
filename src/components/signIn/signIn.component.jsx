@@ -1,22 +1,23 @@
 import React, { useRef, useState } from "react";
 import "./signIn.styles.scss";
-import { register, login } from "../../utils/firebase";
+import { register, login, logout } from "../../utils/firebase";
 import Alert from "../alert/alert.component";
+
 function SignIn() {
   // useState is used to detemine the response from the database
   const [response, setResponse] = useState();
   // useRef is used to get the value of the input field
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-
+  // signUpHandler and signInHandler are used to handle the form submission
   const signUpHandler = (e) => {
-    setResponse(null);
     e.preventDefault();
+    setResponse(null);
     register(emailRef.current.value, passwordRef.current.value, setResponse);
   };
   const signInHandler = (e) => {
-    setResponse(null);
     e.preventDefault();
+    setResponse(null);
     login(emailRef.current.value, passwordRef.current.value, setResponse);
   };
 
