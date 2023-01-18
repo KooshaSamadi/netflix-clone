@@ -3,7 +3,7 @@ import "./profile.styles.scss";
 import { Navbar } from "../../components/navbar/navbar.component";
 import { logout } from "../../utils/firebase";
 import { useNavigate } from "react-router-dom";
-
+import PlanScreen from "../../components/planScreen/planScreen.component";
 function Profile({ currentUser }) {
   const { email } = currentUser;
   const navigate = useNavigate();
@@ -26,6 +26,7 @@ function Profile({ currentUser }) {
             <h2>{email}</h2>
             <div className="profile_plans">
               <h3>Plans</h3>
+              <PlanScreen />
               <button className="profile_signout" onClick={logoutHandler}>
                 Sign Out
               </button>

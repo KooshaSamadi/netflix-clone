@@ -7,13 +7,15 @@ import { auth } from "./utils/firebase";
 import Profile from "./pages/profile/profile.page.jsx";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-
+ // const [loading, setLoading] = useState(true);
   useEffect(() => {
     const authChange = auth.onAuthStateChanged((user) => {
       if (user) {
         // User is signed in
-        console.log(currentUser);
+
         setCurrentUser({ email: user.email, uid: user.uid });
+        console.log(currentUser);
+       // setLoading(false);
       } else {
         // No user is signed in
         console.log("No user is signed in");
@@ -24,7 +26,9 @@ function App() {
       authChange();
     };
   }, []);
-
+  // if (loading) {
+  //   return <div style={{ color: "white", fontSize: "22px" }}>Loading...</div>;
+  // }
   return (
     <div className="App">
       <Routes>

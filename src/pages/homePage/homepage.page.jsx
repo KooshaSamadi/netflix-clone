@@ -57,8 +57,8 @@ const Homepage = () => {
   } = useGetFetchDocumentariesQuery();
   const allMovies = [
     ["TRENDING", dataTrending?.results],
-    // ["NETFLIX ORIGINALS", dataNetflixOriginals?.results],
-    // ["TOP RATED", dataTopRated?.results],
+    ["NETFLIX ORIGINALS", dataNetflixOriginals?.results],
+    ["TOP RATED", dataTopRated?.results],
     // ["ACTION MOVIES", dataActionMovies?.results],
     // ["COMEDY MOVIES", dataComedyMovies?.results],
     // ["HORROR MOVIES", dataHorrorMovies?.results],
@@ -80,7 +80,7 @@ const Homepage = () => {
     <Container fluid="xxl" className="homepage">
       <Navbar />
       <Banner />
-      
+
       {allMovies.map((movie, idx) => (
         <section key={idx}>
           <h1 className="homepage_row_title">{movie[0]}</h1>

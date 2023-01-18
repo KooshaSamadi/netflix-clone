@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyA0N31GeNfJl_NktI0ECUu_QgbT1HT5XR8",
   authDomain: "netflix-clone-40920.firebaseapp.com",
@@ -13,7 +14,8 @@ const firebaseConfig = {
   appId: "1:15443433113:web:a637d5d72ecf3e4b5f8a08",
 };
 const firebaseApp = initializeApp(firebaseConfig);
-//const db = firebaseApp.firestore();
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
 
 const register = (email, password, setResponse) => {
@@ -47,3 +49,4 @@ const logout = () => {
 };
 
 export { register, login, auth, logout };
+export { db };

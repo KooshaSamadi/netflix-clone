@@ -24,6 +24,10 @@
       width: 50px;
       cursor: pointer;
       border-radius: 0.2rem;
+      transition: all 0.3s ease-out;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 }
