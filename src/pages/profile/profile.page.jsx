@@ -26,7 +26,7 @@ function Profile({ currentUser }) {
             <h2>{email}</h2>
             <div className="profile_plans">
               <h3>Plans</h3>
-              <PlanScreen />
+              <PlanScreen currentUser={currentUser} />
               <button className="profile_signout" onClick={logoutHandler}>
                 Sign Out
               </button>

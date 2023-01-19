@@ -1,0 +1,58 @@
+.planscreen {
+  .planscreen_date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .planscreen__plan {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0px;
+    .planscreen__info {
+      text-align: left;
+      h5 {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      h6 {
+        font-size: 0.8rem;
+        font-weight: 400;
+      }
+    }
+  }
+  .planscreen_button {
+    background-color: #6288da;
+    border: none;
+    border-radius: 0.2rem;
+    color: #000;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 5px 15px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: #e5e5e5;
+    }
+  }
+  .current_package {
+    background-color: #6c9224;
+    color: #fff;
+    border: none;
+    border-radius: 0.2rem;
+    color: #000;
+    cursor: text;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 5px 15px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: #58ff98;
+    }
+  }
+  .disabled {
+  }
+}
