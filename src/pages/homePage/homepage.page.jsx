@@ -10,10 +10,8 @@ import {
   useGetFetchTopRatedQuery,
   useGetFetchActionMoviesQuery,
   useGetFetchComedyMoviesQuery,
-  useGetFetchHorrorMoviesQuery,
-  useGetFetchRomanceMoviesQuery,
-  useGetFetchDocumentariesQuery,
 } from "../../services/tmdbApi";
+
 const Homepage = () => {
   const {
     data: dataTrending,
@@ -40,40 +38,20 @@ const Homepage = () => {
     error: errorComedyMovies,
     isLoading: isLoadingComedyMovies,
   } = useGetFetchComedyMoviesQuery();
-  const {
-    data: dataHorrorMovies,
-    error: errorHorrorMovies,
-    isLoading: isLoadingHorrorMovies,
-  } = useGetFetchHorrorMoviesQuery();
-  const {
-    data: dataRomanceMovies,
-    error: errorRomanceMovies,
-    isLoading: isLoadingRomanceMovies,
-  } = useGetFetchRomanceMoviesQuery();
-  const {
-    data: dataDocumentaries,
-    error: errorDocumentaries,
-    isLoading: isLoadingDocumentaries,
-  } = useGetFetchDocumentariesQuery();
+
   const allMovies = [
     ["TRENDING", dataTrending?.results],
     ["NETFLIX ORIGINALS", dataNetflixOriginals?.results],
     ["TOP RATED", dataTopRated?.results],
-    // ["ACTION MOVIES", dataActionMovies?.results],
-    // ["COMEDY MOVIES", dataComedyMovies?.results],
-    // ["HORROR MOVIES", dataHorrorMovies?.results],
-    // ["ROMANCE MOVIES", dataRomanceMovies?.results],
-    // ["DOCUMENTARIES", dataDocumentaries?.results],
+    ["ACTION MOVIES", dataActionMovies?.results],
+    ["COMEDY MOVIES", dataComedyMovies?.results],
   ];
   if (
     isLoadingTrending ||
-    isLoadingDocumentaries ||
-    isLoadingRomanceMovies ||
-    isLoadingHorrorMovies ||
-    isLoadingComedyMovies ||
-    isLoadingActionMovies ||
     isLoadingTopRated ||
-    isLoadingNetflixOriginals
+    isLoadingNetflixOriginals ||
+    isLoadingActionMovies ||
+    isLoadingComedyMovies
   )
     return <div>Loading...</div>;
   return (

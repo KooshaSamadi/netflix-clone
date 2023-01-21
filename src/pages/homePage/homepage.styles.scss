@@ -5,15 +5,13 @@
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
-    &::-moz-scrollbar {
-      display: none;
-    }
+    margin-bottom: 1rem;
     &::-webkit-scrollbar-thumb {
-      background: #ff0000;
+      background: #9c1e1e;
+      cursor: all-scroll;
     }
     &::-webkit-scrollbar {
-      height: 3px;
-      display: none;
+      height: 4px;
     }
   }
 

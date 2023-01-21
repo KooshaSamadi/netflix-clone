@@ -31,26 +31,32 @@ const fetchComedyMovies = () => {
     url: `/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_genres=35`,
   };
 };
-const fetchHorrorMovies = () => {
-  return {
-    method: "GET",
-    url: `/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_genres=27`,
-  };
-};
-const fetchRomanceMovies = () => {
-  return {
-    method: "GET",
-    url: `/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_genres=10749`,
-  };
-};
-const fetchDocumentaries = () => {
-  return {
-    method: "GET",
-    url: `/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&with_genres=99`,
-  };
-};
-//https://api.themoviedb.org/3/trending/all/week?api_key=6eeb142d17f53c2f251f29dd77b6a4e2&language=en-US
 
+const fetchMovieDetails = (id) => {
+  return {
+    method: "GET",
+    url: `/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&external_source=imdb_id`,
+  };
+};
+//Get the cast and crew for a movie.
+const fetchMovieCredits = (id) => {
+  return {
+    method: "GET",
+    url: `/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`,
+  };
+};
+const fetchMovieVideos = (id) => {
+  return {
+    method: "GET",
+    url: `/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`,
+  };
+};
+const fetchMovieReviews = (id) => {
+  return {
+    method: "GET",
+    url: `/movie/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`,
+  };
+};
 export const tmdbApi = createApi({
   reducerPath: "tmdbApi",
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
@@ -80,19 +86,25 @@ export const tmdbApi = createApi({
         return fetchComedyMovies();
       },
     }),
-    getFetchHorrorMovies: builder.query({
-      query: () => {
-        return fetchHorrorMovies();
+
+    getFetchMovieDetails: builder.query({
+      query: (id) => {
+        return fetchMovieDetails(id);
       },
     }),
-    getFetchRomanceMovies: builder.query({
-      query: () => {
-        return fetchRomanceMovies();
+    getFetchMovieCredits: builder.query({
+      query: (id) => {
+        return fetchMovieCredits(id);
       },
     }),
-    getFetchDocumentaries: builder.query({
-      query: () => {
-        return fetchDocumentaries();
+    getFetchMovieVideos: builder.query({
+      query: (id) => {
+        return fetchMovieVideos(id);
+      },
+    }),
+    getFetchMovieReviews: builder.query({
+      query: (id) => {
+        return fetchMovieReviews(id);
       },
     }),
   }),
@@ -104,7 +116,8 @@ export const {
   useGetFetchTopRatedQuery,
   useGetFetchActionMoviesQuery,
   useGetFetchComedyMoviesQuery,
-  useGetFetchHorrorMoviesQuery,
-  useGetFetchRomanceMoviesQuery,
-  useGetFetchDocumentariesQuery,
+  useGetFetchMovieDetailsQuery,
+  useGetFetchMovieCreditsQuery,
+  useGetFetchMovieVideosQuery,
+  useGetFetchMovieReviewsQuery,
 } = tmdbApi;

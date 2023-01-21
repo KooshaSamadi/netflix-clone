@@ -1,0 +1,77 @@
+.movie_page_container {
+  .movie_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    color: white;
+    .movie_page_img {
+      width: 100%;
+      height: 50vh;
+      position: fixed;
+      top: 0;
+    }
+    .movie_page_details {
+      padding: 4rem;
+      background-color: #141414;
+      width: 90%;
+
+      margin-top: -1rem;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      min-width: 300px;
+      margin-top: 48vh;
+      z-index: 10;
+      h6 {
+        margin-bottom: 1rem;
+      }
+      .movie_page_details_img {
+        text-align: center;
+        img {
+          width: 20%;
+          min-width: 200px;
+          margin-bottom: 2rem;
+        }
+      }
+      .movie_page__details_info {
+        color: white;
+      }
+      .movie_page_details_info_cast {
+        h1 {
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        .movie_page_details_info_cast_card {
+          img {
+            width: 100px;
+            border-radius: 0.2rem;
+          }
+          p {
+            margin-top: 0.5rem;
+            text-align: left;
+          }
+        }
+      }
+      .movie_page_details_info_trailer {
+        h1 {
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+        }
+      }
+      .movie_page_details_info_reviews {
+        h1 {
+          color: white;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+        .card {
+          background-color: grey;
+          margin-bottom: 1rem;
+        }
+        color: black;
+      }
+    }
+  }
+}

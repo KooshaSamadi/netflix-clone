@@ -9,7 +9,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import Alert from "../alert/alert.component";
+
 import { loadStripe } from "@stripe/stripe-js";
 
 function PlanScreen({ currentUser }) {
